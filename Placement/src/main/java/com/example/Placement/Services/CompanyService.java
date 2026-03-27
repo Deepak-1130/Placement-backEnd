@@ -14,10 +14,18 @@ public class CompanyService {
 
     public String addCompany(List<Company> company) {
       companyRepository.saveAll(company);
-      return " company added successfully";
+      return "company added successfully";
     }
 
     public List<Company> getCompanyByType(CompanyType type) {
         return companyRepository.getAllCompanyByType(type);
+    }
+
+    public List<Company> getCompany(){
+        return companyRepository.findAll();
+    }
+
+    public List<Company> getCompanyByPackages(int paid, CompanyType type) {
+       return  companyRepository.getCompanyByPackages(paid,type);
     }
 }

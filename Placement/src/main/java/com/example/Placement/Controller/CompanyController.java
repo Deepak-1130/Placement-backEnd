@@ -14,18 +14,28 @@ import java.util.List;
 public class CompanyController {
 
     @Autowired
-    private CompanyService companyService;
-//companies  add pandranala list ah potruka
+     private CompanyService companyService;
+    //companies  add pandranala list ah potruka
     @PostMapping("/addCompany")
-    public String addCompany(@RequestBody List<Company> company){
+     public String addCompany(@RequestBody List<Company> company){
         return companyService.addCompany(company);
     }
     //To get company based on their type
-@GetMapping("/getCompanyByType/{type}")
-    public List<Company> getCompanyByType(@PathVariable CompanyType type){
+    @GetMapping("/getCompanyByType/{type}")
+     public List<Company> getCompanyByType(@PathVariable CompanyType type){
         return companyService.getCompanyByType(type);
 }
+//to get all company
+    @GetMapping("/getCompany")
+    public List<Company> getCompany(){
+        return companyService.getCompany();
+    }
+  // to get companyBased on packages
 
+    @GetMapping("/getCompanyByPackage/{paid}/{type}")
+    public List<Company> getCompanyByPackages(@PathVariable int paid, @PathVariable CompanyType type){
+     return companyService.getCompanyByPackages(paid,type);
+    }
 
 
 }

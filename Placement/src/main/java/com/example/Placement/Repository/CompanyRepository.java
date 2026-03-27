@@ -12,4 +12,7 @@ public interface CompanyRepository extends JpaRepository<Company , Long> {
 
     @Query("SELECT c FROM Company c where c.companyType=:type")
     List<Company> getAllCompanyByType(@Param("type") CompanyType type);
+
+    @Query("SELECT c FROM Company c where c.lastHighestPackage>=:paid AND c.companyType=:type")
+    List<Company> getCompanyByPackages(@Param("paid") int paid,@Param("type") CompanyType type);
 }
