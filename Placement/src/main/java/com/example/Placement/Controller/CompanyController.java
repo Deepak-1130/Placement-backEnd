@@ -56,9 +56,10 @@ public class CompanyController {
      public List<Company> getCompanyByType(@PathVariable CompanyType type){
         return companyService.getCompanyByType(type);
 }
-//to get all company
+  //to get all company
     @GetMapping("/getCompany")
     public List<Company> getCompany(){
+
         return companyService.getCompany();
     }
   // to get companyBased on packages
@@ -67,6 +68,10 @@ public class CompanyController {
     public List<Company> getCompanyByPackages(@PathVariable int paid, @PathVariable CompanyType type){
      return companyService.getCompanyByPackages(paid,type);
     }
+   // Update Company Details
+    @PutMapping("/updateCompany")
+  public String updateDetails( @RequestBody Company company){
+        return  companyService.updateDetails(company);
 
-
+    }
 }
