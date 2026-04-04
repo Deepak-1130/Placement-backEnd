@@ -11,8 +11,11 @@ public class Company {
     private long companyId;
     private String companyName;
     private String branch;
+    private String email;
+    private String mobileNo;
     private Boolean histOfArrear;
     private int lastHighestPackage;
+    private String logoPicPath;
     public long getCompanyId() {
         return companyId;
     }
@@ -69,6 +72,31 @@ public class Company {
         this.description = description;
     }
 
+
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getMobileNo() {
+        return mobileNo;
+    }
+
+    public void setMobileNo(String mobileNo) {
+        this.mobileNo = mobileNo;
+    }
+
+    public String getLogoPicPath() {
+        return logoPicPath;
+    }
+
+    public  void setLogoPicPath(String logoPicPath) {
+        this.logoPicPath = logoPicPath;
+    }
     @Enumerated(EnumType.STRING)
     private CompanyType companyType;
     private String description;
