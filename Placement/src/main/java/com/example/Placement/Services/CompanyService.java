@@ -33,4 +33,18 @@ public class CompanyService {
         companyRepository.save(company);
         return "Updated Successfully "+company.getCompanyName();
     }
+
+    public Company registerCompanyDetails(Company company, MultipartFile profilePic) throws IOException {
+
+
+
+        Files.createDirectories(Paths.get(uploadDir));
+        String profilePicName = company.getEmail() + "_profile_" + StringUtils.cleanPath(profilePic.getOriginalFilename());
+        Path profilePath = Paths.get(uploadDir + profilePicName);
+        Files.copy(profilePic.getInputStream(), profilePath, StandardCopyOption.REPLACE_EXISTING);
+        company.setLogoPicPath(profilePicName);
+
+
+        return companyRepository.save(company);
+    }
 }
