@@ -15,4 +15,5 @@ public interface StudentRepository extends JpaRepository<Student , Long> {
 
     @Query("SELECT s FROM Student s WHERE s.passedOutYear= :year")
     List<Student> findByYear(@Param("year") int year);
+
 }

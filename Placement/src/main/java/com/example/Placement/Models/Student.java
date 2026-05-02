@@ -1,13 +1,13 @@
 package com.example.Placement.Models;
 
 import com.example.Placement.Enums.Departments;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
 
 @Entity
 public class Student {
     @Id
-    private long registerNumber;
+    private Long registerNumber;
     private String firstName;
     private String lastName;
     @Enumerated(EnumType.STRING)
@@ -24,10 +24,7 @@ public class Student {
     @Column(unique = true)
     private String emailId;
     private String nativePlace;
-    @Column(columnDefinition = "LONGBLOB")
-
-    @JsonIgnore
-    private byte[] resume;
+    private String resumeUrl;
     private int historyOfArrears;
 
     public long getRegisterNumber() {
@@ -142,12 +139,12 @@ public class Student {
         this.nativePlace = nativePlace;
     }
 
-    public byte[] getResume() {
-        return resume;
+    public String getResumeUrl() {
+        return resumeUrl;
     }
 
-    public void setResume(byte[] resume) {
-        this.resume = resume;
+    public void setResumeUrl(String resumeUrl) {
+        this.resumeUrl = resumeUrl;
     }
 
     public int getHistoryOfArrears() {
