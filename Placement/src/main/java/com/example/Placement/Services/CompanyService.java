@@ -44,8 +44,6 @@ public class CompanyService {
 
     public Company registerCompanyDetails(Company company, MultipartFile profilePic) throws IOException {
 
-
-
         Files.createDirectories(Paths.get(uploadDir));
         String profilePicName = company.getEmail() + "_profile_" + StringUtils.cleanPath(profilePic.getOriginalFilename());
         Path profilePath = Paths.get(uploadDir + profilePicName);
