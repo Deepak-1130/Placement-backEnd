@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface StudentRepository extends JpaRepository<Student , Long> {
 
@@ -14,6 +15,9 @@ public interface StudentRepository extends JpaRepository<Student , Long> {
     List<Student> findByDept(@Param("dept")Departments dept);
 
     @Query("SELECT s FROM Student s WHERE s.passedOutYear= :year")
-    List<Student> findByYear(@Param("year") int year);
+    List<Student> findByPassedOutYear(@Param("year") int year);
+    
+    Optional<Student> findByEmailId(String emailId);
 
+    boolean existsByEmailId(String emailId);
 }
