@@ -23,6 +23,7 @@ public class CompanyController {
      private final ObjectMapper objectMapper;
 
     public CompanyController(ObjectMapper objectMapper) {
+
         this.objectMapper = objectMapper;
     }
 
@@ -40,7 +41,6 @@ public class CompanyController {
             {
 
         try {
-
             Company company = objectMapper.readValue(companyJson, Company.class);
 
             Company registeredCompanyDetails = companyService.registerCompanyDetails(company, profilePic);

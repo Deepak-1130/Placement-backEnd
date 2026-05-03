@@ -20,4 +20,6 @@ public interface CompanyRepository extends JpaRepository<Company , Long> {
     Optional<Company> findByEmail(String email);
     boolean existsByEmail(String email);
 
+    @Query("SELECT c FROM Company c where c.companyName =:name and c.location=:loc")
+    Company getCompanyById(@Param("name") String companyName,@Param("loc") String companyLoc);
 }

@@ -41,7 +41,8 @@ private StudentService studentService;
 
     @GetMapping("/getStudent/{regNo}")
     public Student getStudent(@PathVariable long regNo){
-       return studentService.getStudentById(regNo);
+
+        return studentService.getStudentById(regNo);
     }
 
   @GetMapping("/getStudentsByDept/{dept}")

@@ -16,6 +16,13 @@ public class Company {
     private Boolean histOfArrear;
     private int lastHighestPackage;
     private String logoPicPath;
+    private String location;
+    public String getLocation(){
+        return location;
+    }
+    public void setLocation(String location){
+        this.location=location;
+    }
     public long getCompanyId() {
         return companyId;
     }
