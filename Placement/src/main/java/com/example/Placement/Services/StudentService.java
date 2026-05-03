@@ -4,17 +4,21 @@ import com.example.Placement.Enums.Departments;
 import com.example.Placement.Models.Student;
 import com.example.Placement.Repository.StudentRepository;
 
+import lombok.RequiredArgsConstructor;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@RequiredArgsConstructor
 @Service
 public class StudentService {
     @Autowired
     private StudentRepository studentRepository;
-
+     private final PasswordEncoder passwordEncoder;
     public String addStudentDetail(@org.springframework.lang.NonNull Student student) {
         studentRepository.save(student);
         return "Student added successfully";
@@ -63,6 +67,9 @@ public class StudentService {
 
     if (student.getFatherName() != null) {
         exist.setFatherName(student.getFatherName());
+    }
+    if(student.getPassword()!=null){
+        exist.setPassword(passwordEncoder.encode(student.getPassword()));
     }
 
     if (student.getMotherName() != null) {
