@@ -23,6 +23,7 @@ public class CompanyController {
      private final ObjectMapper objectMapper;
 
     public CompanyController(ObjectMapper objectMapper) {
+
         this.objectMapper = objectMapper;
     }
 
@@ -33,6 +34,7 @@ public class CompanyController {
         return companyService.addCompany(company);
     }
 
+
     @PostMapping(value = "/register", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<?> registerCompanyDetails(
             @RequestPart("company") String companyJson,
@@ -40,7 +42,6 @@ public class CompanyController {
             {
 
         try {
-
             Company company = objectMapper.readValue(companyJson, Company.class);
 
             Company registeredCompanyDetails = companyService.registerCompanyDetails(company, profilePic);
