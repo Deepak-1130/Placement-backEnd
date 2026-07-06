@@ -25,7 +25,6 @@ public class Student {
     private String emailId;
     private String nativePlace;
     @Column(columnDefinition = "LONGBLOB")
-
     @JsonIgnore
     private byte[] resume;
     private int historyOfArrears;

@@ -22,7 +22,7 @@ public class PlacedStudentService {
 
     public PlacedStudentData markPlacedStudent(PlacedStudentData placedStudentData, MultipartFile offerLetter) throws IOException {
         Files.createDirectories(Paths.get(uploadDir));
-        String fileName = placedStudentData.getStudent().getRegisterNumber()+"offer.pdf";
+        String fileName = placedStudentData.getStudent().getRegisterNumber()+"-offer.pdf";
         Path filePath =  Paths.get(uploadDir+fileName);
         Files.copy(offerLetter.getInputStream(),filePath);
         placedStudentData.setOfferPath(fileName);

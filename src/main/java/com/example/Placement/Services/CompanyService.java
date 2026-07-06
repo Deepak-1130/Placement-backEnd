@@ -19,7 +19,7 @@ public class CompanyService {
     @Autowired
     private CompanyRepository companyRepository;
 
-    private final String uploadDir = "uploads/";
+    private final String uploadDir = "uploads/companyLogos";
 
     public String addCompany(List<Company> company) {
       companyRepository.saveAll(company);
@@ -44,13 +44,11 @@ public class CompanyService {
     }
 
     public Company registerCompanyDetails(Company company, MultipartFile profilePic) throws IOException {
-
         Files.createDirectories(Paths.get(uploadDir));
         String profilePicName = company.getEmail() + "_profile_" + StringUtils.cleanPath(profilePic.getOriginalFilename());
         Path profilePath = Paths.get(uploadDir + profilePicName);
         Files.copy(profilePic.getInputStream(), profilePath, StandardCopyOption.REPLACE_EXISTING);
         company.setLogoPicPath(profilePicName);
-
         return companyRepository.save(company);
 
     }

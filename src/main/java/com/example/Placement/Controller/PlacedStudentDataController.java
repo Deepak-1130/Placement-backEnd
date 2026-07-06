@@ -16,6 +16,7 @@ import java.util.List;
 @CrossOrigin("*")
 public class PlacedStudentDataController {
     @Autowired
+
     private PlacedStudentService placedStudentService;
     private final  ObjectMapper objectMapper;
 
@@ -37,7 +38,6 @@ public class PlacedStudentDataController {
         }
 
     }
-
     @GetMapping("/getPlacedStudents")
     public List<PlacedStudentData> getPlacedStudents(){
         return placedStudentService.getPlacedStudents();

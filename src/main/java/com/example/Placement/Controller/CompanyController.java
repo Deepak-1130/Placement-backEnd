@@ -34,6 +34,7 @@ public class CompanyController {
         return companyService.addCompany(company);
     }
 
+
     @PostMapping(value = "/register", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<?> registerCompanyDetails(
             @RequestPart("company") String companyJson,
